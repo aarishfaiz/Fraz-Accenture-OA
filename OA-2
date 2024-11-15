@@ -1,0 +1,18 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static int reboundedHeight(int H, int V, int Vn) {
+        double eSquared = Math.pow((double) V / Vn, 2);
+        double reboundHeight = H * eSquared;
+        
+        return (int) Math.round(reboundHeight);
+    }
+  public static void main (String[] args) throws java.lang.Exception
+  {
+        System.out.println(reboundedHeight(10, 20, 5));
+
+  }
+}
