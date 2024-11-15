@@ -1,0 +1,32 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static String evenOdd(int[] arr) {
+
+        StringBuilder ans = new StringBuilder();
+
+        for (int ele: arr) {
+            if (ele % 2 == 0) {
+                ans.append("even ");
+            } else {
+                ans.append("odd ");
+            }
+        }
+        return ans.toString().trim();
+    }
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        int arr[] = {
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        };
+        System.out.println((evenOdd(arr)));
+    }
+}
