@@ -1,0 +1,59 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static boolean isVowel(char ch) {
+        
+        String vowels = "aeiouAEIOU";
+        
+        if (vowels.indexOf(ch) >= 0) {
+            return true;
+        }
+        return false;
+    }
+    public static int factorial(int n) {
+        
+        int ans = 1;
+        
+        while(n>0) {
+            ans *= n;
+            n--;
+        }
+        return ans;
+    }
+    public static int maxPermutationCount(String [] s) {
+        int maxPermu = Integer.MIN_VALUE;
+        
+        for(String word: s) {
+            
+            
+            HashMap<Character, Integer> freq = new HashMap<>();
+            int count=0;
+            
+            for(char ch: word.toCharArray()) {
+                if(!isVowel(ch)) {
+                    freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+                    count++;
+                }
+            }
+            
+            
+             int fact = factorial(count);
+             for(int cou: freq.values()) {
+                 fact /= factorial(cou);
+             }
+             
+             
+             maxPermu = Math.max(maxPermu, fact);
+        }
+        return maxPermu;
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	   String [] s = {"hello", "ccbc", "aseliou"};
+	   System.out.println(maxPermutationCount(s));
+
+	}
+}
