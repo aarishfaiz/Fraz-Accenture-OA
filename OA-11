@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static int countCandyBobBuy(int[] arr, int price) {
+        if (price <= 0) {
+            return 0;
+        }
+        if (arr.length == 0 || arr == null) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 5 == 0) {
+                count++;
+            } else if (price >= arr[i]) {
+                count++;
+                price -= arr[i];
+            }
+
+        }
+        return count;
+    }
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        int[] arr = {
+            5,
+            12,
+            104
+        };
+        int price = 16;
+        System.out.println(countCandyBobBuy(arr, price));
+
+    }
+}
