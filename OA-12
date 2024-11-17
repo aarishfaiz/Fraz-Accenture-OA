@@ -1,0 +1,48 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static int prefixSum(String s, String v) {
+        int i=s.length()-1;
+        int j=v.length()-1;
+        
+        int count=0;
+        while(i>=0 && j>=0) {
+            if(s.charAt(i) == v.charAt(j)) {
+                count++;
+            }
+            i--;
+            j--;
+        }
+        return count;
+    }
+    
+    public static String rhymingWord(String [] s, String word) {
+        int maxPrefixSum = 0;
+        
+        String sb = "";
+        for(String bestWord: s) {
+            
+        
+            int prefix = prefixSum(bestWord, word);
+            
+            if(prefix == word.length()) {
+                return "No Word";
+            }else if(maxPrefixSum < prefix) {
+                maxPrefixSum = prefix;
+                sb=bestWord;
+            }
+        }
+        return sb.toString();
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+            String word = "playing";
+            String words[] = {"singing", "flying", "crying", "dying", "lying"};
+            
+            System.out.println(rhymingWord(words, word));
+
+	}
+}
